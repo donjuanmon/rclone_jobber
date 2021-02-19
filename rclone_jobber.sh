@@ -34,8 +34,8 @@ timestamp="$(date +%F_%T)"
 
 # set log_file path
 path="$(realpath "$0")"                 #this will place log in the same directory as this script
-log_file="${path%.*}.log"               #replace path extension with "log"
-#log_file="/var/log/rclone_jobber.log"  #for Logrotate
+#log_file="${path%.*}.log"               #replace path extension with "log"
+log_file="/var/log/rclone_jobber.log"  #for Logrotate
 
 # set log_option for rclone
 log_option="--log-file=$log_file"       #log to log_file
