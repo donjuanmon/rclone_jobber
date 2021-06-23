@@ -86,10 +86,7 @@ fi
 
 # if job is already running (maybe previous run didn't finish)
 # https://github.com/wolfv6/rclone_jobber/pull/9 said this is not working in macOS
-if pidof -o $PPID -x "$job_name"; then
-    print_message "WARNING" "aborted because it is already running."
-    exit 1
-fi
+[ "${FLOCKER}" != "$0" ] && exec env FLOCKER="$0" flock -en "$0" "$0" "$@" || :
 
 ############################### move_old_files_to #############################
 # deleted or changed files are removed or moved, depending on value of move_old_files_to variable
