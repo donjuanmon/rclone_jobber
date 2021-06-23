@@ -86,6 +86,7 @@ fi
 
 # if job is already running (maybe previous run didn't finish)
 # https://github.com/wolfv6/rclone_jobber/pull/9 said this is not working in macOS
+# Not working in linux, fixed below with this https://unix.stackexchange.com/a/343270
 [ "${FLOCKER}" != "$0" ] && exec env FLOCKER="$0" flock -en "$0" "$0" "$@" || :
 
 ############################### move_old_files_to #############################
